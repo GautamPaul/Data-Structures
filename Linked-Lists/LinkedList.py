@@ -48,8 +48,14 @@ class LinkedList():
         self.head = new_node            # set head of the linked list to the temporary node
         self.length += 1                # increase length of the linked list by 1
 
-    def add_node_at_last(node):
-        pass
+    def add_node_at_last(self, node):
+        current_node = self.head
+        while current_node.next != None:
+            current_node = current_node.next
+        new_node = node
+        new_node.next = None
+        current_node.next = new_node
+        self.length += 1
 
     
     # method to insert data in linked list
@@ -71,9 +77,12 @@ class LinkedList():
     
 
 node1 = Node(1)
+node2 = Node(2)
 ll = LinkedList()
 ll.add_node(node1)
+ll.add_node(node2)
 print(ll.head.data)
+print(ll.head.next.data)
 
 # ll.insert_data(1)
 # print(ll.head.data)
