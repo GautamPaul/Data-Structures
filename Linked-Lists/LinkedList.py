@@ -48,14 +48,15 @@ class LinkedList():
         self.head = new_node            # set head of the linked list to the temporary node
         self.length += 1                # increase length of the linked list by 1
 
+    # method to add node at the last
     def add_node_at_last(self, node):
-        current_node = self.head
-        while current_node.next != None:
+        current_node = self.head                # set head as the current node
+        while current_node.next != None:        # iterate to find the last node of the linked list
             current_node = current_node.next
-        new_node = node
-        new_node.next = None
-        current_node.next = new_node
-        self.length += 1
+        new_node = node                         # create temporary node(this will be new last node)
+        new_node.next = None                    # set next of temporary node to None
+        current_node.next = new_node            # set next of current node(earlier last node) to point the new last node
+        self.length += 1                        # increase length of the linked list by 1
 
     
     # method to insert data in linked list
