@@ -77,7 +77,7 @@ class LinkedList():
                 current_node = current_node.next        # move to next node in the linked list
             
         # if flow reaches the end of linked list, it means provided data is not present
-        print("The data is provided is not present in the linked list")
+        print(f"The data provided, {data}, is not present in the linked list.")
 
     
     # method to insert data in linked list
@@ -105,6 +105,23 @@ class LinkedList():
         current_node.next = new_node            # set next of current node(earlier last node) to point the new last node
         self.length += 1                        # increase length of the linked list by 1
 
+    # method to insert data after some value
+    def insert_data_after_value(self, data, after_value):
+        current_node = self.head                    # set head of linked list as the current node
+
+        # iterate through the linked list, till the last node is reached(current_node.next != None)
+        # or the data of the current node is the data after which the new node has to be added(current_node.data != data)
+        while current_node.next != None or current_node.data != after_value:
+            if current_node.data == after_value:        # if the current node has the data after which the node has to be added
+                new_node = Node(data)                   # create a new node with the provided data
+                new_node.next = current_node.next       # set next of the new node to point to the next pointed by the current node
+                current_node.next = new_node            # set next of the current node to the newly added node
+                self.length += 1                        # increase length of the linked list by 1
+                return
+            else:
+                current_node = current_node.next        # move to next node of the linked list
+        print(f"The data provided, {after_value}, is not present in the linked list.")
+
     # method to print content of linked list
     def print_linked_list(self):
         linked_list = []
@@ -123,3 +140,5 @@ ll.insert_data(3)
 ll.add_node_after_value(1,Node(5))
 ll.print_linked_list()
 
+ll.insert_data_after_value(6, 5)
+ll.print_linked_list()
