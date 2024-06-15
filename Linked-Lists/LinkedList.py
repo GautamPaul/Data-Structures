@@ -84,12 +84,13 @@ class LinkedList():
         current_node.next = new_node            # set next of current node(earlier last node) to point the new last node
         self.length += 1                        # increase length of the linked list by 1
 
+    # method to print content of linked list
     def print_linked_list(self):
         linked_list = []
-        current_node = self.head
-        while current_node != None:
-            linked_list.append(current_node.data)
-            current_node = current_node.next
+        current_node = self.head                    # set head as current node
+        while current_node != None:                 # iterate through the linked list
+            linked_list.append(current_node.data)   # add the data of current node to result
+            current_node = current_node.next        # set next node as current node
         print(linked_list)
 
 node1 = Node(1)
