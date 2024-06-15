@@ -58,6 +58,26 @@ class LinkedList():
         current_node.next = new_node            # set next of current node(earlier last node) to point the new last node
         self.length += 1                        # increase length of the linked list by 1
 
+
+    # method to insert node after a certain with given data
+    def add_node_after_value(self, data, node):
+        new_node = node                 # create temporary node 
+        current_node = self.head        # set head of linked list as the current node
+
+        # iterate through the linked list, till the last node is reached(current_node.next != None)
+        # or the data of the current node is the data after which the new node has to be added(current_node.data != data)
+        while current_node.next != None or current_node.data != data:
+            if current_node.data == data:               # if the current node has the data after which the node has to be added
+                new_node.next = current_node.next       # set next of the new node to point to the next pointed by the current node
+                current_node.next = new_node            # set next of the current node to the newly added node
+                self.length += 1                        # increase length of the linked list by 1
+                return
+            else:
+                current_node = current_node.next        # move to next node in the linked list
+            
+        # if flow reaches the end of linked list, it means provided data is not present
+        print("The data is provided is not present in the linked list")
+
     
     # method to insert data in linked list
     def insert_data(self, data):
@@ -99,5 +119,6 @@ ll = LinkedList()
 ll.add_node(node1)
 ll.add_node(node2)
 ll.insert_data(3)
+ll.add_node_after_value(1,Node(5))
 ll.print_linked_list()
 
