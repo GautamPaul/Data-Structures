@@ -33,4 +33,47 @@ class LinkedList():
         self.length = 0
         self.head = None
 
+    # method to add node in linked list
+    # check if the length of the linked list is 0, if so add the node at beginning of the list, else add at the end of the list
+    def add_node(self, node):
+        if self.length == 0:
+            self.add_node_at_beginning(node)
+        else:
+            self.add_node_at_last(node)
+
+    # method to add node at the beginning of the linked list
+    def add_node_at_beginning(self, node):
+        new_node = node                 # create a temporary node
+        new_node.next = self.head       # set next of temporary node to be current head of linked list
+        self.head = new_node            # set head of the linked list to the temporary node
+        self.length += 1                # increase length of the linked list by 1
+
+    def add_node_at_last(node):
+        pass
+
     
+    # method to insert data in linked list
+    def insert_data(self, data):
+        if self.length == 0:
+            self.insert_data_at_beginning(data)
+        else:
+            self.insert_data_at_last(data)
+
+    # method to insert data at the beginning of the linked list
+    def insert_data_at_beginning(self, data):
+        new_node = Node(data)           # create a new node with data
+        self.head = new_node            # set head of the linked list to point to new node
+        self.length = 1                 # increase length of the linked list by 1
+
+    def insert_data_at_last(data):
+        pass
+
+    
+
+node1 = Node(1)
+ll = LinkedList()
+ll.add_node(node1)
+print(ll.head.data)
+
+# ll.insert_data(1)
+# print(ll.head.data)
