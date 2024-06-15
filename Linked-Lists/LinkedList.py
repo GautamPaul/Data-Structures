@@ -1,4 +1,5 @@
-# node of Linked List: constructor(data, next), getters and setters of data and next, function of has_next
+# class to represent node of Linked List
+# methods: constructor(data, next), getters and setters of data and next, function of has_next
 class Node:
     # constructor for initializing a Node
     def __init__(self, data):
