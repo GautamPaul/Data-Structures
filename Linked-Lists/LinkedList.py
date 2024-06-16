@@ -80,6 +80,32 @@ class LinkedList():
         print(f"The data provided, {data}, is not present in the linked list.")
 
     
+    # method to add node at given position
+    def add_node_at_position(self, position, new_node):
+        count = 0                       # count variable to track position
+        previous_node = self.head       # set head as previous node
+        current_node = self.head        # set head as current node
+
+        # if the position given is greater than current list length, or lesser than 0, then it is invalid position
+        if position>self.length or position<0:
+            print(f"The given position does not exist in linked list. Current length: {self.length}")
+        elif position == 1:                             # if the target position is 1
+            self.add_node_at_beginning(new_node)        # then the node has to be added at beginning
+        else:
+            # iterate through list till last node is reached or count goes past given position
+            while current_node.next != None or count<position:
+                count += 1                              # firstly, increase count position by 1, since it is initialized at 0
+                if count == position:                   # if the position is reached
+                    previous_node.next = new_node       # set next of previous node to point the new node
+                    new_node.next = current_node        # set next of new node to point to the current node
+                    self.length += 1                    # increase length of linked list by 1
+                    return
+                else:
+                    previous_node = current_node        # the current node will now become previous node
+                    current_node = current_node.next    # move to the next node
+
+
+    
     # method to insert data in linked list
     def insert_data(self, data):
         if self.length == 0:
@@ -141,4 +167,8 @@ ll.add_node_after_value(1,Node(5))
 ll.print_linked_list()
 
 ll.insert_data_after_value(6, 5)
+ll.print_linked_list()
+
+
+ll.add_node_at_position(5, Node(7))
 ll.print_linked_list()
