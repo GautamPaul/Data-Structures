@@ -175,6 +175,12 @@ class LinkedList():
                     previous_node = current_node        # if the position is reached
                     current_node = current_node.next    # move to next node
 
+
+    # method to get length of the linked list
+    def get_length(self):
+        return self.length
+    
+
     # method to print content of linked list
     def print_linked_list(self):
         linked_list = []
@@ -202,3 +208,6 @@ ll.print_linked_list()
 
 ll.insert_data_at_position(6,8)
 ll.print_linked_list()
+
+
+print(ll.get_length())
