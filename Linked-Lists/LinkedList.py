@@ -87,7 +87,7 @@ class LinkedList():
         current_node = self.head        # set head as current node
 
         # if the position given is greater than current list length, or lesser than 0, then it is invalid position
-        if position>self.length or position<0:
+        if position>self.length or position<1:
             print(f"The given position does not exist in linked list. Positions available: 0-{self.length}")
         elif position == 1:                             # if the target position is 1
             self.add_node_at_beginning(new_node)        # then the node has to be added at beginning
