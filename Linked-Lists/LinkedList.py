@@ -188,6 +188,19 @@ class LinkedList():
         else:
             return self.head.data                   # since head points to the first element of the linked list, return its data
 
+    # method to get last element of the linked list
+    def get_last_element(self):
+        if self.length == 0:                        # condition to check if the linked list is empty
+            print("The linked list is empty.")
+            return None
+        else:
+            current_node = self.head                # set current node to point to the head of the linked list
+            while current_node.next != None:        # iterate through the linked list till the last node, which will have next as None
+                current_node = current_node.next
+
+            return current_node.data                # return data of the node
+
+
     # method to print content of linked list
     def print_linked_list(self):
         linked_list = []
@@ -201,6 +214,7 @@ node1 = Node(1)
 node2 = Node(2)
 ll = LinkedList()
 ll.get_first_element()
+ll.get_last_element()
 ll.add_node(node1)
 ll.add_node(node2)
 ll.insert_data(3)
@@ -220,3 +234,4 @@ ll.print_linked_list()
 
 print("Length:",ll.get_length())
 print("First element:",ll.get_first_element())
+print("Last element:",ll.get_last_element())
