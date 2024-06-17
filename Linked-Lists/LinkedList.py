@@ -183,6 +183,19 @@ class LinkedList():
             self.head = self.head.next              # set head to point to the next of the head
             self.length -= 1                        # decrease the length of the linked list by 1
 
+    # method to delete node from last
+    def delete_from_last(self):
+        if self.length == 0:                        # condition to check if the linked list is empty
+            print("The linked list is empty.")
+        else:
+            current_node = self.head                # set current node to point at head of linked list
+            previous_node = self.head               # set previous node to point at head of linked list
+            while current_node.next != None:        # iterate through the linked list till the last node
+                previous_node = current_node        # set previous node to point to current node
+                current_node = current_node.next    # move to next node
+            previous_node.next = None               # set next of previous node to point to None, making it last node
+            self.length -= 1                        # decrease the length of the linked list by 1
+
     # method to get length of the linked list
     def get_length(self):
         return self.length
@@ -246,4 +259,7 @@ print("Last element:",ll.get_last_element())
 ll.print_linked_list()
 print("Deleting from beginning")
 ll.delete_from_beginning()
+ll.print_linked_list()
+print("Deleting from last")
+ll.delete_from_last()
 ll.print_linked_list()
