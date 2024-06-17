@@ -157,7 +157,7 @@ class LinkedList():
         current_node = self.head        # set current node to point at head of linked list
 
         # check if position is valid
-        if position>self.length or position<0:
+        if position>self.length or position<1:
             print(f"The given position does not exist in linked list. Positions available: 0-{self.length}")
         elif position == 1:                         # if position is 1
             self.insert_data_at_beginning(data)     # insert data at the beginning of the linked list
