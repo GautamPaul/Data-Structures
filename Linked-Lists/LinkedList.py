@@ -224,6 +224,50 @@ class LinkedList():
                 previous_node = current_node                    # the current node will now become previous node
                 current_node = current_node.next                # move to the next node
 
+
+    # method to delete the given value from the linked list
+    def delete_value(self, data):
+        data_values = []
+        if self.length == 0:                        # condition to check if the linked list is empty
+            print("The linked list is empty.")
+        else:
+            current_node = self.head                            # set current node to point to the head of the linked list
+            previous_node = self.head                           # set previous node to point to the head of the linked list
+            # iterate through the linked list
+            while current_node.next != None or current_node.data != data:
+                data_values.append(current_node.data)
+                if current_node.data == data:                   # if target node with the data is reached
+                    previous_node.next = current_node.next      # set next of previous node to point to the next of current node
+                    self.length -= 1                            # decrease length of the linked list by 1
+                    return
+                if current_node.next == None:                   # if last node is reached break the loop
+                    break
+                previous_node = current_node                    # the current node will now become previous node
+                current_node = current_node.next                # move to the next node
+
+            # alternate approach using position from data
+            # count = 0                                           # set count to track position
+            # current_node = self.head                            # set current node to point to head of the linked list
+            # # iterate through the linked list
+            # while current_node.next != None or current_node.data != data:
+            #     count += 1                                      # increase count by 1
+            #     data_values.append(current_node.data)
+            #     if current_node.data == data:                   # if target node with the data is reached
+            #         if count == 1:                              # if position is 1, delete from beginning
+            #             self.delete_from_beginning()
+            #         elif count == self.length:                  # if position is length of the linked list, delete from last
+            #             self.delete_from_last()
+            #         else:
+            #             self.delete_from_position(count)        # delete from the target position
+            #             return
+            #     if current_node.next == None:
+            #         break
+            #     current_node = current_node.next                # move to next node
+
+        print(f"Given data: {data} is not present in the linked list.")
+        print(f"Available data: {data_values}")
+
+
     # method to get length of the linked list
     def get_length(self):
         return self.length
@@ -295,3 +339,6 @@ ll.print_linked_list()
 print("Deleting from position 3")
 ll.delete_from_position(3)
 ll.print_linked_list()
+ll.delete_value(6)
+ll.print_linked_list()
+ll.delete_value(10)
