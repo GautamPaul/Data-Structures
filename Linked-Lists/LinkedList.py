@@ -172,8 +172,9 @@ class LinkedList():
                     self.length += 1                    # increase length of the linked list by 1
                     return
                 else:
-                    previous_node = current_node        # if the position is reached
+                    previous_node = current_node        # the current node will now become previous node
                     current_node = current_node.next    # move to next node
+
 
     # method to delete node from beginning
     def delete_from_beginning(self):
@@ -182,6 +183,7 @@ class LinkedList():
         else:
             self.head = self.head.next              # set head to point to the next of the head
             self.length -= 1                        # decrease the length of the linked list by 1
+
 
     # method to delete node from last
     def delete_from_last(self):
@@ -195,6 +197,32 @@ class LinkedList():
                 current_node = current_node.next    # move to next node
             previous_node.next = None               # set next of previous node to point to None, making it last node
             self.length -= 1                        # decrease the length of the linked list by 1
+    
+
+    #method to delete node from given position
+    def delete_from_position(self, position):
+        if self.length == 0:                        # condition to check if the linked list is empty
+            print("The linked list is empty.")
+        elif position<1 or position>self.length:    # condition to check if position is valid
+            print(f"The given position does not exist in linked list. Positions available: 0-{self.length}")
+        elif position == 1:                         # if the position is 1, delete the node at beginning
+            self.delete_from_beginning()
+        elif position == self.length:               # if the position is same as length of the linked list, delete the node at the last
+            self.delete_from_last()
+        else:
+            count = 0                               # count variable to track position
+            current_node = self.head                # set current node to point head of the linked list
+            previous_node = self.head               # set previous node to point the head of the linked list
+
+            # iterate through the linked list till last node is reached or, count goes beyond given position
+            while current_node.next != None or count < position:
+                count += 1                                      # increase count by 1, positions will be 1-length
+                if count == position:                           # check if target position is reached
+                    previous_node.next = current_node.next      # set next of the previous node to point the next of the current node
+                    self.length -= 1                            # decrease the length of the linked list by 1
+                    return
+                previous_node = current_node                    # the current node will now become previous node
+                current_node = current_node.next                # move to the next node
 
     # method to get length of the linked list
     def get_length(self):
@@ -235,6 +263,7 @@ node2 = Node(2)
 ll = LinkedList()
 ll.get_first_element()
 ll.get_last_element()
+ll.delete_from_position(4)
 ll.add_node(node1)
 ll.add_node(node2)
 ll.insert_data(3)
@@ -262,4 +291,7 @@ ll.delete_from_beginning()
 ll.print_linked_list()
 print("Deleting from last")
 ll.delete_from_last()
+ll.print_linked_list()
+print("Deleting from position 3")
+ll.delete_from_position(3)
 ll.print_linked_list()
