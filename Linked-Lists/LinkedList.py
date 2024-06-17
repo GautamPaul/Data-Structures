@@ -302,6 +302,11 @@ class LinkedList():
             current_node = current_node.next        # set next node as current node
         print(linked_list)
 
+
+    # method to clear the linked list
+    def clear_list(self):
+        self.head = None        # set head of the linked list to None, since Python is garbage-collected, it will reclaim unused memory
+
 node1 = Node(1)
 node2 = Node(2)
 ll = LinkedList()
@@ -342,3 +347,6 @@ ll.print_linked_list()
 ll.delete_value(6)
 ll.print_linked_list()
 ll.delete_value(10)
+
+ll.clear_list()
+ll.print_linked_list()
