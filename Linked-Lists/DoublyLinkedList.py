@@ -1,29 +1,36 @@
 # class to represent node of Doubly Linked List
 # methods: constructor(data, next, previous), getters and setters of data, next and previous; function of has_next and has_previous
 class Node:
+    # constructor for initializing a node
     def __init__(self, data=None, next=None, previous=None):
         self.data = data
         self.next = next
         self.previous = previous
 
+    # getters and setters for data
     def set_data(self, data):
         self.data = data
 
     def get_data(self):
         return self.data
     
+    # getters and setters for next
     def set_next(self, next):
         self.next = next
 
     def get_next(self):
         return self.next
     
+    # getters and setters for previous
     def set_previous(self, previous):
         self.previous = previous
 
     def get_previous(self):
         return self.previous
     
+    # returns True if node points to another node.
+    # if a node has some next value, then next is not equal to None, condition passes thus True is returned.
+    # if it is the last node, then next is None, conditions fails thus False is returned.
     def has_next(self):
         return self.next != None
     
