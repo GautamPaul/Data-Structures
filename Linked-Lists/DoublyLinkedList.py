@@ -84,6 +84,20 @@ class DoublyLinkedList:
             current_node = current_node.next    # move to next node
         print(f"{data} is not present in the doubly linked list.")
         return False                            # data not found
+    
+    # method to get node at given position
+    def get_node_at_position(self, position):
+        if position<1 or position>self.length:      # check for valid position
+            print(f"{position} is not valid for the doubly linked list. Available positions: 1-{self.length}")
+            return None
+        count = 0                               # set count to 0, to track the position in the traversal
+        current_node = self.head                # set current node to point the head
+        while current_node != None:             # iterate through the doubly linked list
+            count += 1                          # increase the count by 1
+            if count == position:               # check if target position is reached
+                return current_node             # return the node
+            current_node = current_node.next    # move to next node
+        
 
     # method to print the doubly linked list
     def print_doubly_linked_list(self):
@@ -119,3 +133,5 @@ dll.print_doubly_linked_list()
 dll.reverse_print_doubly_linked_list()
 print(dll.find_data(3))
 print(dll.find_data(-3))
+
+print(dll.get_node_at_position(2).data)
