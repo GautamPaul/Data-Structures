@@ -26,6 +26,9 @@ class Node:
     def has_next(self):
         return self.next != None
     
+    def __str__(self):
+        return f"Data: {self.data}"
+    
 
 # class for Linked List
 class LinkedList():

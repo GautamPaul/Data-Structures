@@ -36,6 +36,9 @@ class Node:
     
     def has_previous(self):
         return self.previous != None
+    
+    def __str__(self):
+        return f"Data: {self.data}"
 
 
 # class for Doubly Linked List
