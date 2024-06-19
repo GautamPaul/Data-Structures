@@ -79,9 +79,20 @@ class DoublyLinkedList:
             current_node = current_node.next                # move to next node
         print(doubly_linked_list)
 
+    # method to print the doubly linked list in reverse order
+    def reverse_print_doubly_linked_list(self):
+        reversed_doubly_linked_list = []                            # list to store the data of the nodes
+        current_node = self.tail                                    # set current node to point to the tail of the doubly linked list
+        while current_node != None:                                 # iterate till the current node becomes None
+            reversed_doubly_linked_list.append(current_node.data)   # append the data in the list
+            current_node = current_node.previous                    # move to next node
+        print(reversed_doubly_linked_list)
+
+
 dll = DoublyLinkedList()
 dll.insert_at_end(1)
 dll.insert_at_end(2)
 dll.insert_at_end(3)
 dll.insert_at_beginning(-1)
 dll.print_doubly_linked_list()
+dll.reverse_print_doubly_linked_list()
