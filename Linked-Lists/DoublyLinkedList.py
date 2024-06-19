@@ -60,6 +60,7 @@ class DoublyLinkedList:
             self.tail = current_node.next                           # set tail of the doubly linked list to next of the current node, since current node is still pointing to the previously last node
             self.length += 1                                        # increase length of the doubly linked list by 1
 
+    # method to insert node at the beginning
     def insert_at_beginning(self, data):
         if self.head == None:                               # check if the head is None, that is if the doubly linked list is empty
             self.head = Node(data)                          # create a new node and assign it to head
@@ -71,6 +72,7 @@ class DoublyLinkedList:
             current_head.previous = self.head               # set previous of the current head value to point to the head
             self.length += 1                                # increase the length of the doubly linked list by 1
 
+    # method to print the doubly linked list
     def print_doubly_linked_list(self):
         doubly_linked_list = []                             # list to store the data of the nodes
         current_node = self.head                            # set current node to point to the head of the doubly linked list
