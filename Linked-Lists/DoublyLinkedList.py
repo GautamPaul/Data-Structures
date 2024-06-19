@@ -74,6 +74,9 @@ class DoublyLinkedList:
 
     # method to print the doubly linked list
     def print_doubly_linked_list(self):
+        if self.head == None:                               # if head is None, it means there are no elements
+            print("No elements in the doubly linked list")
+            return
         doubly_linked_list = []                             # list to store the data of the nodes
         current_node = self.head                            # set current node to point to the head of the doubly linked list
         while current_node != None:                         # iterate till the current node becomes None
@@ -83,6 +86,9 @@ class DoublyLinkedList:
 
     # method to print the doubly linked list in reverse order
     def reverse_print_doubly_linked_list(self):
+        if self.head == None:                               # if head is None, it means there are no elements
+            print("No elements in the doubly linked list")
+            return
         reversed_doubly_linked_list = []                            # list to store the data of the nodes
         current_node = self.tail                                    # set current node to point to the tail of the doubly linked list
         while current_node != None:                                 # iterate till the current node becomes None
