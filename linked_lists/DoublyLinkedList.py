@@ -152,7 +152,7 @@ class DoublyLinkedList:
         print(reversed_doubly_linked_list)
 
 
-if __name__ == "__main__":
+def main():
     dll = DoublyLinkedList()
     dll.insert_at_end(1)
     dll.insert_at_end(2)
@@ -168,3 +168,6 @@ if __name__ == "__main__":
     dll.print_doubly_linked_list()
     dll.insert_data_at_position(4,2)
     dll.print_doubly_linked_list()
+
+if __name__ == "__main__":
+    main()
