@@ -311,7 +311,7 @@ class LinkedList():
         self.head = None        # set head of the linked list to None, since Python is garbage-collected, it will reclaim unused memory
 
 
-if __name__ == "__main__":
+def main():
     node1 = Node(1)
     node2 = Node(2)
     ll = LinkedList()
@@ -355,3 +355,6 @@ if __name__ == "__main__":
 
     ll.clear_list()
     ll.print_linked_list()
+
+if __name__ == "__main__":
+    main()
