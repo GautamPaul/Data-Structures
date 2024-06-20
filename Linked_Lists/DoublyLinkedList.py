@@ -152,18 +152,19 @@ class DoublyLinkedList:
         print(reversed_doubly_linked_list)
 
 
-dll = DoublyLinkedList()
-dll.insert_at_end(1)
-dll.insert_at_end(2)
-dll.insert_at_end(3)
-dll.insert_at_beginning(-1)
-dll.print_doubly_linked_list()
-dll.reverse_print_doubly_linked_list()
-print(dll.find_data(3))
-print(dll.find_data(-3))
+if __name__ == "__main__":
+    dll = DoublyLinkedList()
+    dll.insert_at_end(1)
+    dll.insert_at_end(2)
+    dll.insert_at_end(3)
+    dll.insert_at_beginning(-1)
+    dll.print_doubly_linked_list()
+    dll.reverse_print_doubly_linked_list()
+    print(dll.find_data(3))
+    print(dll.find_data(-3))
 
-print(dll.get_node_at_position(2))
+    print(dll.get_node_at_position(2))
 
-dll.print_doubly_linked_list()
-dll.insert_data_at_position(4,2)
-dll.print_doubly_linked_list()
+    dll.print_doubly_linked_list()
+    dll.insert_data_at_position(4,2)
+    dll.print_doubly_linked_list()
