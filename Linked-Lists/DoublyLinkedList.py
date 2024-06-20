@@ -75,6 +75,31 @@ class DoublyLinkedList:
             current_head.previous = self.head               # set previous of the current head value to point to the head
             self.length += 1                                # increase the length of the doubly linked list by 1
 
+    # method to insert data at given position
+    def insert_data_at_position(self, data, position):
+        if position<1 or position>self.length:              # check for valid position
+            print(f"Invalid position: {position} Available positions: 1-{self.length}")
+            return
+        elif position == 1:                                 # check if position is 1, if so insert at the beginneing
+            self.insert_at_beginning(data)
+            return
+        else:
+            count = 0                                                   # set count as 0, to track the position in traversal
+            current_node = self.head                                    # set current node to point head
+            previous_node = self.head                                   # set previous node to point head
+            while current_node.next != None or count<position:          # traverse through the list
+                count += 1                                              # increase the count by 1
+                if count == position:                                   # if target position is reached
+                    new_node = Node(data, current_node, previous_node)  # create a new node with next as current node and previous as previous node
+                    current_node.previous = new_node                    # set previous of current node to point to new node
+                    previous_node.next = new_node                       # set next of previous node to point to new node
+                    self.length += 1                                    # increase length of the doubly linked list by 1
+                    return
+                previous_node = current_node                            # the current node will now become previous node
+                current_node = current_node.next                        # move to the next node
+
+
+
     # method to find if data is present in the doubly linked list
     def find_data(self, data):
         count = 0                               # set count as 0, to track the position in the traversal
@@ -137,4 +162,8 @@ dll.reverse_print_doubly_linked_list()
 print(dll.find_data(3))
 print(dll.find_data(-3))
 
-print(dll.get_node_at_position(2).data)
+print(dll.get_node_at_position(2))
+
+dll.print_doubly_linked_list()
+dll.insert_data_at_position(4,2)
+dll.print_doubly_linked_list()
