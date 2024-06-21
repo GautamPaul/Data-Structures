@@ -116,6 +116,27 @@ class DoublyLinkedList:
             self.head = None            # if there was only one node, which is now deleted, set head to point to None
         self.length -= 1                # decrease the length of the doubly linked list by 1
 
+    # method to delete data from doubly linked list
+    def delete_data(self, data):
+        if self.head.data == data:          # check if head has the data
+            self.delete_at_beginning()      # delete the node at beginning
+            return
+        elif self.tail.data == data:        # check if tail has the data
+            self.delete_at_end()            # delete the node at the end
+            return
+        else:
+            current_node = self.head                            # set current node to point head
+            previous_node = self.head                           # set previous node to point head
+            while current_node != None:                         # iterate through the list
+                if current_node.data == data:                   # if the current node has the data
+                    previous_node.next = current_node.next      # set next of the previous node to point next of current node
+                    current_node.next.previous = previous_node  # set previous of the next node to point to previous node
+                previous_node = current_node                    # the current node will now become previous node
+                current_node = current_node.next                # move to next node
+            return
+        print(f"Given data {data} not present in the doubly linked list.")
+        print(f"Available data: {self.print_doubly_linked_list()}")
+
     # method to find if data is present in the doubly linked list
     def find_data(self, data):
         count = 0                               # set count as 0, to track the position in the traversal
@@ -194,6 +215,13 @@ def main():
     dll.delete_at_beginning()
     dll.print_doubly_linked_list()
     dll.delete_at_end()
+    dll.print_doubly_linked_list()
+    dll.insert_at_end(7)
+    dll.insert_at_end(5)
+    dll.insert_at_end(6)
+    dll.print_doubly_linked_list()
+    print("Deleting data")
+    dll.delete_data(5)
     dll.print_doubly_linked_list()
 
 if __name__ == "__main__":
