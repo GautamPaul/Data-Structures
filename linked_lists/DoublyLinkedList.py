@@ -104,7 +104,7 @@ class DoublyLinkedList:
         if self.head:                   # check if head is present, this case is if there was only one node
             self.head.previous = None   # set previous of new head to point to None
         else:
-            self.tail = None
+            self.tail = None            # if there was only one node, which is now deleted, set tail to point to None
         self.length -= 1                # decrease the length of the doubly linked list by 1
 
     # method to delete node at end
