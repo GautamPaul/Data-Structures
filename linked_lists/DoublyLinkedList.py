@@ -98,7 +98,12 @@ class DoublyLinkedList:
                 previous_node = current_node                            # the current node will now become previous node
                 current_node = current_node.next                        # move to the next node
 
-
+    # method to delete node at beginning
+    def delete_at_beginning(self):
+        self.head = self.head.next      # set head to point to the point to the next of the current head
+        if self.head:                   # check if head is present, this case is if there was only one node
+            self.head.previous = None   # set previous of new head to point to None
+        self.length -= 1                # decrease the length of the doubly linked list by 1
 
     # method to find if data is present in the doubly linked list
     def find_data(self, data):
@@ -155,6 +160,8 @@ class DoublyLinkedList:
 def main():
     dll = DoublyLinkedList()
     dll.insert_at_end(1)
+    dll.delete_at_beginning()
+    dll.print_doubly_linked_list()
     dll.insert_at_end(2)
     dll.insert_at_end(3)
     dll.insert_at_beginning(-1)
@@ -167,6 +174,8 @@ def main():
 
     dll.print_doubly_linked_list()
     dll.insert_data_at_position(4,2)
+    dll.print_doubly_linked_list()
+    dll.delete_at_beginning()
     dll.print_doubly_linked_list()
 
 if __name__ == "__main__":
