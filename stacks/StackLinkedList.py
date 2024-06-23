@@ -43,6 +43,17 @@ class Stack:
             new_node.next = self.head   # set next of the new node to current head
             self.head = new_node        # make new node as head
         self.length += 1                # increase length by 1
+
+    # method to pop element from the stack
+    # Pop operation is implemented by deleting the node from the beginning of the list
+    def pop(self):
+        if self.head == None:               # check if stack is empty
+            print("Stack underflow. Empty stack.")
+        else:
+            current_head = self.head        # get current head(temp variable)
+            self.head = current_head.next   # set head to point to next of current head
+            current_head.next = None        # set next of current head to point to None
+            return current_head.data        # return data from current head(temp variable)
     
 
     # method to print the stack
@@ -72,4 +83,7 @@ stack.push(1)
 stack.push(2)
 stack.push(5)
 print(stack.peek())
+stack.print_stack()
+print(stack.pop())
+print(stack.pop())
 stack.print_stack()
