@@ -13,6 +13,17 @@ class Stack:
     def is_full(self):
         return len(self.stack) == self.size
 
+    # method to get current size of stack
+    def get_size(self):
+        return len(self.stack)
+
+    # method to peek the top element of the stack
+    def peek(self):
+        if self.is_empty():         # check if stack is empty
+            print("Stack underflow. Stack is empty.")
+        else:
+            return self.stack[-1]   # return the value of top element of the stack
+
     # method to push element in the stack
     def push(self, data):
         if self.is_full():                              # check if the stack is full
@@ -38,9 +49,15 @@ def main():
     stack.push(5)
     stack.print_stack()
     stack.push(1)
+    print(stack.get_size())
     stack.print_stack()
     print(stack.pop())
     stack.print_stack()
+    stack.push(2)
+    stack.push(3)
+    stack.push(4)
+    stack.print_stack()
+    print(stack.peek())
 
 if __name__ == "__main__":
     main()
