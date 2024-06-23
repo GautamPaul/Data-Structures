@@ -47,6 +47,21 @@ class CircularLinkedList:
             self.head = new_node                    # set head to point to new node
         self.length += 1                            # increase length of the circular linked list by 1
 
+    # method to add node at the end
+    def add_node_at_end(self, data):
+        new_node = Node(data)
+        if self.head:                               # check if there are nodes present
+            current_node = self.head                # set current node to point head
+            while current_node.next != self.head:   # loop till current node has next point to head, means it will be last node
+                current_node = current_node.next    # move to next node
+            new_node.next = self.head               # set next of the new node to point to head
+            current_node.next = new_node            # set next of last node to point to new node
+        else:
+            # no nodes
+            new_node.next = new_node                # set next of the new node to point to itself
+            self.head = new_node                    # set head to point to new node
+        self.length += 1                            # increase length of the circular linked list by 1
+
 
     # method to print the nodes in the circular linked list
     def print_circular_linked_list(self):
@@ -72,6 +87,11 @@ def main():
     cll.add_node_at_beginning(1)
     print("inserting 2 at beginning")
     cll.add_node_at_beginning(2)
+    print("printing cll")
+    cll.print_circular_linked_list()
+    print("inserting 3, 4 at end")
+    cll.add_node_at_end(3)
+    cll.add_node_at_end(4)
     print("printing cll")
     cll.print_circular_linked_list()
 
