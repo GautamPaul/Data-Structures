@@ -74,6 +74,19 @@ class CircularLinkedList:
             current_node.next = self.head           # set next of last node to point to new head
         self.length -= 1                            # decrease length of the circular linked list by 1
 
+    def delete_from_end(self):
+        if self.length == 1:                        # check if there is only one node
+            self.head = None                        # set head to point to None
+        else:
+            current_node = self.head                # set head as the current node
+            previous_node = self.head               # set head as the previous node
+            while current_node.next != self.head:   # iterate to get the last node and the last second node
+                previous_node = current_node        # current node will now become previous node
+                current_node = current_node.next    # move to next node
+            previous_node.next = self.head          # set next of the last second node to point to head
+            current_node.next = None                # set next of last node to point to None, to release memory
+        self.length -= 1                            # decrease length of the circular linked list by 1
+
 
     # method to print the nodes in the circular linked list
     def print_circular_linked_list(self):
@@ -112,6 +125,9 @@ def main():
     cll.print_circular_linked_list()
     print("deleting from beginning")
     cll.delete_from_beginning() 
+    cll.print_circular_linked_list()
+    print("deleting from end")
+    cll.delete_from_end()
     cll.print_circular_linked_list()
     
 
