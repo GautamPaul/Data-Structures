@@ -28,6 +28,7 @@ class Node:
 
 # class for Stack using Linked List
 class Stack:
+    # constructor for stack initialization
     def __init__(self):
         self.head = None
         self.length = 0
@@ -35,24 +36,27 @@ class Stack:
     # method to push the element in stack
     # Push operation is implemented by inserting element at the beginning of the list
     def push(self, data):
-        new_node = Node(data)
-        if self.length == 0:
+        new_node = Node(data)           # create a new node with data
+        if self.length == 0:            # if stack is empty, set head to point to this new node
             self.head = new_node
         else:
-            new_node.next = self.head
-            self.head = new_node
-        self.length += 1
+            new_node.next = self.head   # set next of the new node to current head
+            self.head = new_node        # make new node as head
+        self.length += 1                # increase length by 1
     
 
+    # method to print the stack
+    # Note: this is printed in reverse order,
+    # that is first element is top of stack and last element is bottom of stack
     def print_stack(self):
-        if self.length == 0:
+        if self.length == 0:                            # check if stack is empty
             print("Stack underflow. Empty stack.")
         else:
-            stack_data = []
-            current_node = self.head
-            while current_node != None:
-                stack_data.append(current_node.data)
-                current_node = current_node.next
+            stack_data = []                             # result list to store content of stack
+            current_node = self.head                    # set head as current node
+            while current_node != None:                 # loop till current node becomes None
+                stack_data.append(current_node.data)    # add data of current node in result list
+                current_node = current_node.next        # move to next node
             print(stack_data)
 
 
