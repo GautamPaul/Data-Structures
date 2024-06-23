@@ -59,8 +59,17 @@ class Stack:
                 current_node = current_node.next        # move to next node
             print(stack_data)
 
+    # method to peek the top element in stack
+    def peek(self):
+        if self.length == 0:                            # check if stack is empty
+            print("Stack underflow. Empty stack.")
+        else:
+            return self.head.data                       # return data of head node
+
 
 stack = Stack()
 stack.push(1)
 stack.push(2)
+stack.push(5)
+print(stack.peek())
 stack.print_stack()
