@@ -24,6 +24,26 @@ class Queue:
         else:
             return self.queue[self.front]
 
+    def enqueue(self, data):
+        if self.size == self.limit:
+            print("Queue Overflow.")
+            return
+        else:
+            self.queue.append(data)
+        if self.front is None:
+            self.front = self.rear = 0
+        else:
+            self.rear = self.size
+        self.size += 1
+
 
 queue = Queue(5)
 print(queue.get_front_element())
+queue.enqueue(1)
+queue.enqueue(2)
+queue.enqueue(3)
+queue.enqueue(4)
+queue.enqueue(5)
+queue.enqueue(6)
+
+print(queue.queue)
