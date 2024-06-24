@@ -36,6 +36,17 @@ class Queue:
             self.rear = self.size
         self.size += 1
 
+    def dequeue(self):
+        if self.size == 0:
+            print("Queue Underflow.")
+            return
+        else:
+            self.queue.pop(0)
+            self.size -= 1
+            if self.size == 0:
+                self.front = self.rear = None
+            else:
+                self.rear = self.size-1
 
 queue = Queue(5)
 print(queue.get_front_element())
@@ -45,5 +56,8 @@ queue.enqueue(3)
 queue.enqueue(4)
 queue.enqueue(5)
 queue.enqueue(6)
+queue.dequeue()
 
 print(queue.queue)
+print(queue.get_rear_element())
+print(queue.get_front_element())
