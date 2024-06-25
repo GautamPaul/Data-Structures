@@ -36,7 +36,7 @@ class Stack:
         if self.is_empty():                             # check if the stack is empty
             print("Stack underflow. Stack is empty.")
         else:
-            return self.stack.pop()                     # pop the top element from stack
+            return self.stack.pop()                     # pop the top element from stack. pop takes default value as -1
 
     # method to print data in stack
     def print_stack(self):
