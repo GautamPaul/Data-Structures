@@ -39,13 +39,19 @@ class BinaryTree:
     def get_root(self):
         return self.root
 
-bt = BinaryTree(0)
-bt.insert_left(1)
-bt.insert_left(2)
-bt.insert_left(3)
-bt.insert_right(4)
-bt.insert_right(5)
-print(bt.left)
-print(bt.right)
-print(bt.root.right)
-print(bt.get_root())
+
+def main():
+    bt = BinaryTree(0)
+    bt.insert_left(1)
+    bt.insert_left(2)
+    bt.insert_left(3)
+    bt.insert_right(4)
+    bt.insert_right(5)
+    print(bt.left)
+    print(bt.right)
+    print(bt.root.right)
+    print(bt.get_root())
+
+
+if __name__ == "__main__":
+    main()
