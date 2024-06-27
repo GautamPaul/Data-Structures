@@ -26,6 +26,7 @@ class BinaryTree:
             self.left = new_node        # make this new node as left of binary tree
         self.root.left = self.left      # set left of root to point to left of binary tree
 
+    # method to insert node in left of binary tree
     def insert_right(self, data):
         new_node = Node(data)           # create a new node with data
         if self.right is None:          # check if there is any right of binary tree
