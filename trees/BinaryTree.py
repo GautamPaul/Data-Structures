@@ -35,6 +35,10 @@ class BinaryTree:
             self.right = new_node       # make this new node as right of binary tree
         self.root.right = self.right    # set right of binary tree to point to new node
 
+    # method to get root of binary tree
+    def get_root(self):
+        return self.root
+
 bt = BinaryTree(0)
 bt.insert_left(1)
 bt.insert_left(2)
@@ -44,3 +48,4 @@ bt.insert_right(5)
 print(bt.left)
 print(bt.right)
 print(bt.root.right)
+print(bt.get_root())
