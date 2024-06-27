@@ -9,8 +9,8 @@ class Node:
 
 
 class BinaryTree:
-    def __init__(self):
-        self.root = None
+    def __init__(self, data):
+        self.root = Node(data)
         self.left = None
         self.right = None
     
@@ -21,6 +21,7 @@ class BinaryTree:
         else:
             new_node.left = self.left
             self.left = new_node
+        self.root.left = self.left
 
     def insert_right(self, data):
         new_node = Node(data)
@@ -29,8 +30,9 @@ class BinaryTree:
         else:
             new_node.right = self.right
             self.right = new_node
+        self.root.right = self.right
 
-bt = BinaryTree()
+bt = BinaryTree(0)
 bt.insert_left(1)
 bt.insert_left(2)
 bt.insert_left(3)
@@ -38,3 +40,4 @@ bt.insert_right(4)
 bt.insert_right(5)
 print(bt.left)
 print(bt.right)
+print(bt.root.right)
