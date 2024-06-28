@@ -78,19 +78,25 @@ def pre_order_traversal_recursive(root, result):
     pre_order_traversal_recursive(root.left, result)    # move towards left
     pre_order_traversal_recursive(root.right, result)   # move towards right
 
+# method for pre order traversal
 def pre_order_traversal_iterative(root):
     if root is None:
         return
     else:
         result = []
-        stack = []
-        stack.append(root)
-        while stack:
-            current_node = stack.pop()
-            result.append(current_node.data)
-            if current_node.right is not None:
+        stack = []                                      # stack to track nodes visited
+        stack.append(root)                              # add root in stack
+        # Pop all items one by one. Do following for every popped item
+        # a) print it
+        # b) push its right child
+        # c) push its left child
+        # Note that right child is pushed first so that left is processed first
+        while stack:                                    # while the stack is not empty
+            current_node = stack.pop()                  # get node from stack
+            result.append(current_node.data)            # add data of current node to result
+            if current_node.right is not None:          # check if current node has a right, and append in stack
                 stack.append(current_node.right)
-            if current_node.left is not None:
+            if current_node.left is not None:           # check if current node has a left, and append in stack
                 stack.append(current_node.left)
         print("pre_order_traversal_iterative:",result)
 
