@@ -62,12 +62,13 @@ class BinaryTree:
                 print("in_order_traversal_iterative:",result)
                 break
 
+# recursive function for in order traversal
 def in_order_traversal_recursive(root, result):
     if root is None:
         return
-    in_order_traversal_recursive(root.left, result)
-    result.append(root.data)
-    in_order_traversal_recursive(root.right, result)
+    in_order_traversal_recursive(root.left, result)     # move towards left
+    result.append(root.data)                            # add data of node in result
+    in_order_traversal_recursive(root.right, result)    # move towards right
 
 # recursive function for pre order traversal
 def pre_order_traversal_recursive(root, result):
