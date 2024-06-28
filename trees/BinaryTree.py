@@ -68,7 +68,15 @@ def in_order_traversal_recursive(root, result):
     in_order_traversal_recursive(root.left, result)
     result.append(root.data)
     in_order_traversal_recursive(root.right, result)
-            
+
+# recursive function for pre order traversal
+def pre_order_traversal_recursive(root, result):
+    if root is None:
+        return
+    result.append(root.data)                            # add data of node in result
+    pre_order_traversal_recursive(root.left, result)    # move towards left
+    pre_order_traversal_recursive(root.right, result)   # move towards right
+    
 
 
 
@@ -120,6 +128,10 @@ def main():
     in_order_traversal_recursive(root_node, in_order_recursive_result)
     print("in_order_recursive_result:",in_order_recursive_result)
 
+
+    pre_order_recursive_result = []
+    pre_order_traversal_recursive(root_node, pre_order_recursive_result)
+    print("pre_order_recursive_result:",pre_order_recursive_result)
 
 if __name__ == "__main__":
     main()
