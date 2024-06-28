@@ -59,8 +59,15 @@ class BinaryTree:
                 result.append(current_node.data)
                 current_node = current_node.right
             else:
-                print(result)
+                print("in_order_traversal_iterative:",result)
                 break
+
+def in_order_traversal_recursive(root, result):
+    if root is None:
+        return
+    in_order_traversal_recursive(root.left, result)
+    result.append(root.data)
+    in_order_traversal_recursive(root.right, result)
             
 
 
@@ -77,6 +84,9 @@ def main():
     print(bt.root.right)
     print(bt.get_root())
     bt.in_order_traversal_iterative(bt.get_root())
+    in_order_recursive_result = []
+    in_order_traversal_recursive(bt.get_root(), in_order_recursive_result)
+    print("in_order_recursive_result:",in_order_recursive_result)
 
 
 
@@ -106,6 +116,9 @@ def main():
     #    /  \   /  \
     #   4    5 6    7
     bt.in_order_traversal_iterative(root_node)
+    in_order_recursive_result = []
+    in_order_traversal_recursive(root_node, in_order_recursive_result)
+    print("in_order_recursive_result:",in_order_recursive_result)
 
 
 if __name__ == "__main__":
