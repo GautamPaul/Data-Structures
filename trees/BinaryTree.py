@@ -40,6 +40,30 @@ class BinaryTree:
     def get_root(self):
         return self.root
 
+    @staticmethod       # made it static method to access without class
+    def in_order_traversal_iterative(root):
+        if not root:    # if there is not root, return
+            return
+        result = []
+        stack = []
+        current_node = root                         # set current node as root
+        while True:
+            # this condition is moving towards the left most node
+            if current_node is not None:            # if there is current node
+                stack.append(current_node)          # append the node in stack
+                current_node = current_node.left    # move to left node
+            # this condition left most node is reached, get data from this node 
+            # and backtrack to node at the top of stack, then visit the right node
+            elif stack:
+                current_node = stack.pop()
+                result.append(current_node.data)
+                current_node = current_node.right
+            else:
+                print(result)
+                break
+            
+
+
 
 def main():
     bt = BinaryTree(0)
@@ -52,6 +76,36 @@ def main():
     print(bt.right)
     print(bt.root.right)
     print(bt.get_root())
+    bt.in_order_traversal_iterative(bt.get_root())
+
+
+
+    left_node = Node(2)
+    left_node.left = Node(4)
+    left_node.right = Node(5)
+    #      2
+    #    /  \
+    #   4    5
+
+    right_node = Node(3)
+    right_node.left = Node(6)
+    right_node.right = Node(7)
+
+    #            3
+    #           /  \
+    #          6    7
+
+    root_node = Node(1)
+    #         1
+
+    root_node.left = left_node
+    root_node.right = right_node
+    #         1
+    #       /   \
+    #      2     3
+    #    /  \   /  \
+    #   4    5 6    7
+    bt.in_order_traversal_iterative(root_node)
 
 
 if __name__ == "__main__":
