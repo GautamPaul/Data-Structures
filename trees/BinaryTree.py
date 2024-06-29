@@ -100,6 +100,13 @@ def pre_order_traversal_iterative(root):
                 stack.append(current_node.left)
         print("pre_order_traversal_iterative:",result)
 
+# recursive function for post order traversal
+def post_order_traversal_recursive(root, result):
+    if root is None:
+        return
+    post_order_traversal_recursive(root.left, result)    # move towards left
+    post_order_traversal_recursive(root.right, result)   # move towards right
+    result.append(root.data)                             # add data of node in result
 
 
 def main():
@@ -156,6 +163,12 @@ def main():
     print("pre_order_recursive_result:",pre_order_recursive_result)
 
     pre_order_traversal_iterative(root_node)
+
+
+    post_order_recursive_result = []
+    post_order_traversal_recursive(root_node, post_order_recursive_result)
+    print("post_order_recursive_result:",post_order_recursive_result)
+
 
 if __name__ == "__main__":
     main()
