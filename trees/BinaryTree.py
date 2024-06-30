@@ -109,6 +109,26 @@ def post_order_traversal_recursive(root, result):
     result.append(root.data)                             # add data of node in result
 
 
+def post_order_traversal_iterative(root, result):
+    if not root:
+        return
+    visited = set()
+    stack = []
+    node = root
+    while stack or node:
+        if node:
+            stack.append(node)
+            node = node.left
+        else:
+            node = stack.pop()
+            if node.right and not node.right in visited:
+                stack.append(node)
+                node = node.right
+            else:
+                visited.add(node)
+                result.append(node.data)
+                node = None
+
 def main():
     bt = BinaryTree(0)
     bt.insert_left(1)
@@ -168,6 +188,10 @@ def main():
     post_order_recursive_result = []
     post_order_traversal_recursive(root_node, post_order_recursive_result)
     print("post_order_recursive_result:",post_order_recursive_result)
+
+    post_order_iterative_result = []
+    post_order_traversal_iterative(root_node, post_order_iterative_result)
+    print("post_order_iterative_result:",post_order_iterative_result)
 
 
 if __name__ == "__main__":
