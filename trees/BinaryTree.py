@@ -128,6 +128,21 @@ def post_order_traversal_iterative(root, result):
                 visited.add(node)
                 result.append(node.data)
                 node = None
+    
+def level_order_traversal(root):
+    if not root:
+        return
+    queue = []
+    queue.append(root)
+    result = []
+    while len(queue) !=  0:
+        current_node = queue.pop(0)
+        result.append(current_node.data)
+        if current_node.left:
+            queue.append(current_node.left)
+        if current_node.right:
+            queue.append(current_node.right)
+    print(result)
 
 def main():
     bt = BinaryTree(0)
@@ -192,6 +207,8 @@ def main():
     post_order_iterative_result = []
     post_order_traversal_iterative(root_node, post_order_iterative_result)
     print("post_order_iterative_result:",post_order_iterative_result)
+
+    level_order_traversal(root_node)
 
 
 if __name__ == "__main__":
