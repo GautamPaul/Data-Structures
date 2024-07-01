@@ -128,20 +128,21 @@ def post_order_traversal_iterative(root, result):
                 visited.add(node)
                 result.append(node.data)
                 node = None
-    
+
+# method for level order traversal
 def level_order_traversal(root):
     if not root:
         return
-    queue = []
-    queue.append(root)
+    queue = []                                  # used list as a queue. enqueue by using append. dequeue using pop(0)
+    queue.append(root)                          # enqueue root
     result = []
-    while len(queue) !=  0:
-        current_node = queue.pop(0)
-        result.append(current_node.data)
-        if current_node.left:
-            queue.append(current_node.left)
-        if current_node.right:
-            queue.append(current_node.right)
+    while len(queue) !=  0:                     # iterate till queue is not empty
+        current_node = queue.pop(0)             # dequeue to get node
+        result.append(current_node.data)        # add data from this node
+        if current_node.left:                   # check existence of left for current node
+            queue.append(current_node.left)     # enqueue left node
+        if current_node.right:                  # check existence of right for current node
+            queue.append(current_node.right)    # enqueue right node
     print(result)
 
 def main():
