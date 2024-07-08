@@ -24,6 +24,14 @@ def insert_node(root: Optional[BSTNode], node: BSTNode):
                 root.right = node
             else:
                 insert_node(root.right, node)   # traverse to the right
+
+
+def in_order_traversal(root: Optional[BSTNode]):
+    if not root:
+        return
+    in_order_traversal(root.left)
+    print(root.data, end=" ")
+    in_order_traversal(root.right)
             
 
 
@@ -35,6 +43,7 @@ def main():
     insert_node(root, BSTNode(14))
     print(root.left)
     print(root.right)
+    in_order_traversal(root)
        
 
 
