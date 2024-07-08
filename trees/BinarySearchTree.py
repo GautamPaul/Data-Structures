@@ -9,20 +9,21 @@ class BSTNode:
     def __str__(self):
         return f"Data: {self.data}"
 
+# method to insert node in Binary Search Tree
 def insert_node(root: Optional[BSTNode], node: BSTNode):
-    if root is None:
+    if root is None:                            # check if root is present, if not this node will become root
         root = node
     else:
-        if node.data < root.data:
-            if root.left is None:
+        if node.data < root.data:               # if data in node is less than data in root
+            if root.left is None:               # if left of root is empty, set left of root to as node
                 root.left = node
             else:
-                insert_node(root.left, node)
+                insert_node(root.left, node)    # traverse to the left
         else:
-            if root.right is None:
+            if root.right is None:              # if right of root is empty, set right of root to as node
                 root.right = node
             else:
-                insert_node(root.right, node)
+                insert_node(root.right, node)   # traverse to the right
             
 
 
