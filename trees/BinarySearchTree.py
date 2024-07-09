@@ -25,10 +25,10 @@ def insert_node(root: Optional[BSTNode], node: BSTNode):
             else:
                 insert_node(root.right, node)   # traverse to the right
 
-
-def find_minimum_node(root):
-    current_node = root
-    while current_node.left is not None:
+# method to find the minimum node in BST
+def find_minimum_node(root: BSTNode):
+    current_node = root                     # set root as current node
+    while current_node.left is not None:    # iterate till the left most node in the BST
         current_node = current_node.left
     return current_node
 
