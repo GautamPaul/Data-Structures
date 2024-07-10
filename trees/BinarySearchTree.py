@@ -25,6 +25,16 @@ def insert_node(root: Optional[BSTNode], node: BSTNode):
             else:
                 insert_node(root.right, node)   # traverse to the right
 
+def find_node(root: BSTNode, data):
+    current_node = root
+    while current_node is not None or current_node.data != data:
+        if current_node.data == data:
+            return current_node
+        elif data > current_node.data:
+            current_node = current_node.right
+        else:
+            current_node = current_node.left
+
 # method to find the minimum node in BST
 def find_minimum_node(root: BSTNode):
     current_node = root                     # set root as current node
@@ -52,6 +62,9 @@ def main():
     in_order_traversal(root)
     print()
     print(find_minimum_node(root).data)
+    print(find_node(root, 14))
+    print(find_node(root, 3))
+    
        
 
 
