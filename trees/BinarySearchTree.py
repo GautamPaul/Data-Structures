@@ -25,14 +25,16 @@ def insert_node(root: Optional[BSTNode], node: BSTNode):
             else:
                 insert_node(root.right, node)   # traverse to the right
 
+
+# method to find a given node
 def find_node(root: BSTNode, data):
-    current_node = root
-    while current_node is not None or current_node.data != data:
-        if current_node.data == data:
+    current_node = root                                             # start with root node as the current node
+    while current_node is not None or current_node.data != data:    # iterate till current node becomes None, that is it reaches the leaf node
+        if current_node.data == data:                               # if current node has the data, return the node
             return current_node
-        elif data > current_node.data:
+        elif data > current_node.data:                              # if target data is greater than current node's data, move right
             current_node = current_node.right
-        else:
+        else:                                                       # else move left
             current_node = current_node.left
 
 # method to find the minimum node in BST
