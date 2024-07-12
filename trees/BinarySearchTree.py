@@ -44,6 +44,13 @@ def find_minimum_node(root: BSTNode):
         current_node = current_node.left
     return current_node
 
+# method to find the minimum node in BST
+def find_maximum_node(root: BSTNode):
+    current_node = root                     # set root as current node
+    while current_node.right is not None:   # iterate till the right most node in the BST
+        current_node = current_node.right
+    return current_node
+
 def in_order_traversal(root: Optional[BSTNode]):
     if not root:
         return
@@ -64,6 +71,7 @@ def main():
     in_order_traversal(root)
     print()
     print(find_minimum_node(root).data)
+    print(find_maximum_node(root).data)
     print(find_node(root, 14))
     print(find_node(root, 3))
     
