@@ -51,12 +51,13 @@ def find_maximum_node(root: BSTNode):
         current_node = current_node.right
     return current_node
 
+#method for in order traversal
 def in_order_traversal(root: Optional[BSTNode]):
     if not root:
         return
-    in_order_traversal(root.left)
-    print(root.data, end=" ")
-    in_order_traversal(root.right)
+    in_order_traversal(root.left)           # recursive call towards left
+    print(root.data, end=" ")               # printing data of root
+    in_order_traversal(root.right)          # recurdive call towards right
             
 
 
